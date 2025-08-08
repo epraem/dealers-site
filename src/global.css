@@ -67,6 +67,12 @@ body {
 .p-2 { padding: 0.5rem; }
 .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
 
+/* Header specific styles */
+header {
+  height: var(--header-height);
+  box-sizing: border-box;
+}
+
 .bg-white\/95 { background-color: rgba(255, 255, 255, 0.95); }
 .bg-gray-800 { background-color: #1f2937; }
 .backdrop-blur-sm { backdrop-filter: blur(4px); }
