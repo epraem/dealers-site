@@ -368,12 +368,20 @@ p {
   .section {
     padding: 2rem 0;
   }
-  
+
   .card {
     padding: 1rem;
   }
-  
+
   .section-title {
     margin-bottom: 2rem;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image {
+    min-height: 250px;
   }
 }
