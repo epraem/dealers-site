@@ -495,7 +495,6 @@ export const head: DocumentHead = {
   ],
   scripts: [
     {
-      type: "application/ld+json",
       children: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
