@@ -15,9 +15,9 @@ export default component$(() => {
   return (
     <>
       {/* Header */}
-      <header class="fixed top-0 right-0 left-0 z-50 border-b border-gray-200 bg-white shadow-sm">
+      <header class="fixed top-0 right-0 left-0 z-50 border-b border-gray-200 bg-white shadow-sm" role="banner">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <nav class="flex h-16 items-center justify-between">
+          <nav class="flex h-16 items-center justify-between" role="navigation" aria-label="Main navigation">
             {/* Logo */}
             <Logo />
 
@@ -65,7 +65,10 @@ export default component$(() => {
             <button
               class="rounded-lg p-2 text-[#2D3748] transition-colors hover:bg-gray-100 hover:text-[#3182CE] md:hidden"
               onClick$={() => (isMenuOpen.value = !isMenuOpen.value)}
-              aria-label="Toggle menu"
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMenuOpen.value}
+              aria-controls="mobile-menu"
+              type="button"
             >
               <svg
                 class="h-6 w-6"
@@ -85,7 +88,7 @@ export default component$(() => {
 
           {/* Mobile Navigation */}
           {isMenuOpen.value && (
-            <div class="border-t border-gray-200 py-4 md:hidden">
+            <div class="border-t border-gray-200 py-4 md:hidden" id="mobile-menu" role="menu">
               <div class="flex flex-col space-y-3">
                 <a
                   href="#home"
@@ -130,7 +133,8 @@ export default component$(() => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" class="relative overflow-hidden bg-white pt-24 pb-20">
+      <main>
+        <section id="home" class="relative overflow-hidden bg-white pt-24 pb-20" role="banner" aria-label="Hero section">
         {/* Background Pattern */}
         <div class="absolute inset-0 opacity-5">
           <div class="absolute top-0 left-0 h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMzMTgyQ0UiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')]" />
@@ -248,10 +252,11 @@ export default component$(() => {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      </main>
 
       {/* About Us Section */}
-      <section id="about" class="bg-white py-16">
+      <section id="about" class="bg-white py-16" aria-label="About us">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="grid items-center gap-12 lg:grid-cols-2">
             <div>
@@ -292,8 +297,12 @@ export default component$(() => {
             <div class="relative">
               <img
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Team collaboration"
+                alt="Professional team collaborating on digital marketing strategies in modern office environment"
                 class="h-auto w-full rounded-2xl shadow-xl"
+                loading="lazy"
+                width="1000"
+                height="667"
+                decoding="async"
               />
             </div>
           </div>
@@ -402,7 +411,7 @@ export default component$(() => {
       </section>
 
       {/* Services Section */}
-      <section id="services" class="bg-white py-16">
+      <section id="services" class="bg-white py-16" aria-label="Our services">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="mb-12 text-center">
             <Heading2 class="mb-6">
@@ -567,8 +576,12 @@ export default component$(() => {
             <div class="order-2 lg:order-1">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Team collaboration on digital marketing strategies"
+                alt="Professional team collaborating on digital marketing strategies and business growth planning"
                 class="h-auto w-full rounded-lg shadow-lg"
+                loading="lazy"
+                width="800"
+                height="533"
+                decoding="async"
               />
             </div>
 
@@ -704,7 +717,7 @@ export default component$(() => {
       </section>
 
       {/* Portfolio/Case Studies Section */}
-      <section id="portfolio" class="bg-gray-50 py-16">
+      <section id="portfolio" class="bg-gray-50 py-16" aria-label="Portfolio and case studies">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="mb-12 text-center">
             <Heading2 class="mb-6">
@@ -720,8 +733,12 @@ export default component$(() => {
             <div class="overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
               <img
                 src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                alt="Restaurant marketing case study"
+                alt="Successful restaurant marketing case study showing increased foot traffic and customer engagement"
                 class="h-40 w-full object-cover"
+                loading="lazy"
+                width="800"
+                height="160"
+                decoding="async"
               />
               <div class="p-5">
                 <Typography variant="h4" class="mb-2">
@@ -753,8 +770,12 @@ export default component$(() => {
             <div class="overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
               <img
                 src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                alt="Retail store marketing"
+                alt="Retail store digital marketing success story with improved online sales and customer acquisition"
                 class="h-40 w-full object-cover"
+                loading="lazy"
+                width="800"
+                height="160"
+                decoding="async"
               />
               <div class="p-5">
                 <Typography variant="h4" class="mb-2">
@@ -786,8 +807,12 @@ export default component$(() => {
             <div class="overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
               <img
                 src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                alt="Healthcare marketing"
+                alt="Healthcare practice digital marketing campaign generating new patient leads through targeted advertising"
                 class="h-40 w-full object-cover"
+                loading="lazy"
+                width="800"
+                height="160"
+                decoding="async"
               />
               <div class="p-5">
                 <Typography variant="h4" class="mb-2">
@@ -820,7 +845,7 @@ export default component$(() => {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" class="bg-white py-16">
+      <section id="testimonials" class="bg-white py-16" aria-label="Client testimonials">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="mb-12 text-center">
             <h2 class="mb-6 text-2xl font-bold text-[#2D3748] lg:text-3xl">
@@ -837,8 +862,12 @@ export default component$(() => {
               <div class="mb-4 flex items-center">
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80"
-                  alt="Client testimonial"
+                  alt="Mike Johnson, satisfied restaurant owner client testimonial photo"
                   class="mr-3 h-10 w-10 rounded-full object-cover"
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                  decoding="async"
                 />
                 <div>
                   <h4 class="text-sm font-semibold text-[#2D3748]">
@@ -874,8 +903,12 @@ export default component$(() => {
               <div class="mb-4 flex items-center">
                 <img
                   src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80"
-                  alt="Client testimonial"
+                  alt="Sarah Chen, e-commerce director client testimonial photo"
                   class="mr-3 h-10 w-10 rounded-full object-cover"
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                  decoding="async"
                 />
                 <div>
                   <h4 class="text-sm font-semibold text-[#2D3748]">
@@ -911,8 +944,12 @@ export default component$(() => {
               <div class="mb-4 flex items-center">
                 <img
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80"
-                  alt="Client testimonial"
+                  alt="Dr. Robert Martinez, medical practice owner client testimonial photo"
                   class="mr-3 h-10 w-10 rounded-full object-cover"
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                  decoding="async"
                 />
                 <div>
                   <h4 class="text-sm font-semibold text-[#2D3748]">
@@ -948,7 +985,7 @@ export default component$(() => {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" class="bg-gray-50 py-16">
+      <section id="faq" class="bg-gray-50 py-16" aria-label="Frequently asked questions">
         <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div class="mb-12 text-center">
             <h2 class="mb-6 text-2xl font-bold text-[#2D3748] lg:text-3xl">
@@ -1035,6 +1072,7 @@ export default component$(() => {
       <section
         id="contact"
         class="bg-gradient-to-r from-[#3182CE] to-[#2B6CB0] py-16"
+        aria-label="Contact us"
       >
         <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <h2 class="mb-6 text-2xl font-bold text-white lg:text-3xl">
@@ -1088,7 +1126,7 @@ export default component$(() => {
       </section>
 
       {/* Footer */}
-      <footer class="bg-[#2D3748] py-10 text-white">
+      <footer class="bg-[#2D3748] py-10 text-white" role="contentinfo" aria-label="Site footer">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="grid gap-6 md:grid-cols-4">
             <div class="col-span-2">
@@ -1203,11 +1241,39 @@ export const head: DocumentHead = {
     {
       name: "keywords",
       content:
-        "Denver digital marketing, indoor billboards, local advertising, digital signage, marketing agency Denver, advertising network, business marketing solutions",
+        "Denver digital marketing, indoor billboards, local advertising, digital signage, marketing agency Denver, advertising network, business marketing solutions, SEO services, PPC advertising, social media marketing, web design Denver, Google Business Profile optimization",
     },
     {
       name: "viewport",
       content: "width=device-width, initial-scale=1.0",
+    },
+    {
+      name: "robots",
+      content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    },
+    {
+      name: "author",
+      content: "Top Shelf Advertising",
+    },
+    {
+      name: "theme-color",
+      content: "#3182CE",
+    },
+    {
+      name: "msapplication-TileColor",
+      content: "#3182CE",
+    },
+    {
+      name: "apple-mobile-web-app-capable",
+      content: "yes",
+    },
+    {
+      name: "apple-mobile-web-app-status-bar-style",
+      content: "default",
+    },
+    {
+      name: "format-detection",
+      content: "telephone=no",
     },
     {
       property: "og:title",
@@ -1224,6 +1290,34 @@ export const head: DocumentHead = {
       content: "website",
     },
     {
+      property: "og:url",
+      content: "https://your-domain.com/",
+    },
+    {
+      property: "og:site_name",
+      content: "Top Shelf Advertising",
+    },
+    {
+      property: "og:locale",
+      content: "en_US",
+    },
+    {
+      property: "og:image",
+      content: "https://your-domain.com/og-image.jpg",
+    },
+    {
+      property: "og:image:width",
+      content: "1200",
+    },
+    {
+      property: "og:image:height",
+      content: "630",
+    },
+    {
+      property: "og:image:alt",
+      content: "Top Shelf Advertising - Denver Digital Marketing Agency",
+    },
+    {
       name: "twitter:card",
       content: "summary_large_image",
     },
@@ -1236,11 +1330,32 @@ export const head: DocumentHead = {
       content:
         "Premium indoor billboard network and digital marketing solutions for Denver businesses.",
     },
+    {
+      name: "twitter:image",
+      content: "https://your-domain.com/og-image.jpg",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Top Shelf Advertising - Denver Digital Marketing Agency",
+    },
   ],
   links: [
     {
       rel: "canonical",
       href: "https://your-domain.com/",
+    },
+    {
+      rel: "preconnect",
+      href: "https://fonts.googleapis.com",
+    },
+    {
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+      crossorigin: "anonymous",
+    },
+    {
+      rel: "dns-prefetch",
+      href: "https://images.unsplash.com",
     },
   ],
   scripts: [
@@ -1250,29 +1365,164 @@ export const head: DocumentHead = {
       },
       script: JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        name: "Top Shelf Advertising",
-        description:
-          "Denver's premier digital marketing and indoor advertising network",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Denver",
-          addressRegion: "Colorado",
-          addressCountry: "US",
-        },
-        telephone: "(303) 555-0123",
-        email: "hello@topshelfadvertising.com",
-        url: "https://your-domain.com",
-        serviceArea: {
-          "@type": "City",
-          name: "Denver",
-        },
-        services: [
-          "Digital Marketing",
-          "Indoor Billboard Advertising",
-          "Social Media Marketing",
-          "SEO Services",
-          "Pay-Per-Click Advertising",
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://your-domain.com/#business",
+            name: "Top Shelf Advertising",
+            alternateName: "Top Shelf Advertising Denver",
+            description:
+              "Denver's premier digital marketing and indoor advertising network",
+            url: "https://your-domain.com",
+            telephone: "(303) 555-0123",
+            email: "hello@topshelfadvertising.com",
+            foundingDate: "2020",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "123 Main Street",
+              addressLocality: "Denver",
+              addressRegion: "Colorado",
+              postalCode: "80202",
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: "39.7392",
+              longitude: "-104.9903",
+            },
+            areaServed: [
+              {
+                "@type": "City",
+                name: "Denver",
+              },
+              {
+                "@type": "State",
+                name: "Colorado",
+              },
+            ],
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Digital Marketing Services",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Digital Marketing",
+                    description: "Comprehensive digital marketing solutions",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Indoor Billboard Advertising",
+                    description: "Premium indoor advertising network",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "SEO Services",
+                    description: "Search engine optimization services",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Pay-Per-Click Advertising",
+                    description: "PPC and Google Ads management",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Social Media Marketing",
+                    description: "Social media content and management",
+                  },
+                },
+              ],
+            },
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                ],
+                opens: "09:00",
+                closes: "17:00",
+              },
+            ],
+            sameAs: [
+              "https://www.facebook.com/topshelfadvertising",
+              "https://www.linkedin.com/company/topshelfadvertising",
+              "https://twitter.com/topshelfads",
+            ],
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://your-domain.com/#website",
+            url: "https://your-domain.com",
+            name: "Top Shelf Advertising",
+            description:
+              "Denver's premier digital marketing and indoor advertising network",
+            publisher: {
+              "@id": "https://your-domain.com/#business",
+            },
+            potentialAction: [
+              {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: "https://your-domain.com/?s={search_term_string}",
+                },
+                "query-input": "required name=search_term_string",
+              },
+            ],
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://your-domain.com/#webpage",
+            url: "https://your-domain.com",
+            name: "Top Shelf Advertising - Denver's Premier Digital Marketing & Indoor Billboard Network",
+            isPartOf: {
+              "@id": "https://your-domain.com/#website",
+            },
+            about: {
+              "@id": "https://your-domain.com/#business",
+            },
+            description:
+              "Local advertising and digital marketing pros in Denver. Helping businesses get noticed on screens and online with our premium indoor billboard network and full-service marketing solutions.",
+            breadcrumb: {
+              "@id": "https://your-domain.com/#breadcrumb",
+            },
+            inLanguage: "en-US",
+            potentialAction: [
+              {
+                "@type": "ReadAction",
+                target: ["https://your-domain.com"],
+              },
+            ],
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://your-domain.com/#breadcrumb",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://your-domain.com",
+              },
+            ],
+          },
         ],
       }),
     },
