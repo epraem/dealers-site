@@ -48,7 +48,7 @@ export default component$(() => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" class="section" style="padding-top: 8rem;">
+      <section id="home" class="section" style="padding-top: 2rem;">
         <div class="container">
           <div class="grid-2" style="gap: 4rem;">
             <div class="animate-fade-in">
