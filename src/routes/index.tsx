@@ -1350,17 +1350,11 @@ export const head: DocumentHead = {
       href: "https://dealers-site.vercel.app/",
     },
     {
-      rel: "preconnect",
-      href: "https://fonts.googleapis.com",
-    },
-    {
-      rel: "preconnect",
-      href: "https://fonts.gstatic.com",
+      rel: "preload",
+      href: "/fonts/Figtree-VariableFont_wght.ttf",
+      as: "font",
+      type: "font/ttf",
       crossorigin: "anonymous",
-    },
-    {
-      rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap",
     },
     {
       rel: "dns-prefetch",
