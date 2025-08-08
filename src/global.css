@@ -5,6 +5,7 @@
 }
 
 :root {
+  --header-height: 80px;
   --primary-blue: #1e3a8a;
   --accent-blue: #60a5fa;
   --light-blue: #dbeafe;
