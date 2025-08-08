@@ -710,7 +710,7 @@ export default component$(() => {
                 leads, and grow your business. Each solution is crafted to
                 deliver real, measurable results.
               </Typography>
-              <button class="rounded-lg bg-[#3182CE] px-8 py-3 text-base font-medium text-white shadow-lg transition-all duration-300 hover:bg-[#2C5282] hover:shadow-xl">
+              <button class="rounded-lg bg-[#2C5282] px-8 py-3 text-base font-medium text-white shadow-lg transition-all duration-300 hover:bg-[#2A4365] hover:shadow-xl">
                 Get Started Today
               </button>
             </div>
@@ -1357,6 +1357,10 @@ export const head: DocumentHead = {
       rel: "preconnect",
       href: "https://fonts.gstatic.com",
       crossorigin: "anonymous",
+    },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap",
     },
     {
       rel: "dns-prefetch",
