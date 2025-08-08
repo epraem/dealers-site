@@ -37,6 +37,44 @@ body {
   background-color: var(--white);
   overflow-x: hidden;
   font-display: swap;
+  padding-top: 80px; /* Reserve space for fixed header */
+}
+
+/* Utility classes for layout stability */
+.fixed { position: fixed; }
+.top-0 { top: 0; }
+.left-0 { left: 0; }
+.right-0 { right: 0; }
+.z-50 { z-index: 50; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+
+.hidden { display: none; }
+.relative { position: relative; }
+.group { position: relative; }
+
+.gap-1 { gap: 0.25rem; }
+.gap-8 { gap: 2rem; }
+
+.w-6 { width: 1.5rem; }
+.h-0\\.5 { height: 0.125rem; }
+
+.p-2 { padding: 0.5rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+
+.bg-white\/95 { background-color: rgba(255, 255, 255, 0.95); }
+.bg-gray-800 { background-color: #1f2937; }
+.backdrop-blur-sm { backdrop-filter: blur(4px); }
+.border-b { border-bottom-width: 1px; }
+.border-gray-100 { border-color: #f3f4f6; }
+
+@media (min-width: 768px) {
+  .md\\:flex { display: flex; }
+  .md\\:hidden { display: none; }
 }
 
 .container {
