@@ -130,22 +130,19 @@ export default component$(() => {
       </header>
 
       {/* Hero Section */}
-      <section
-        id="home"
-        class="relative overflow-hidden bg-gradient-to-r from-[#1A202C] via-[#2D3748] to-[#1A202C] pt-24 pb-20"
-      >
+      <section id="home" class="relative overflow-hidden bg-white pt-24 pb-20">
         {/* Background Pattern */}
-        <div class="absolute inset-0 opacity-10">
-          <div class="absolute top-0 left-0 h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')]" />
+        <div class="absolute inset-0 opacity-5">
+          <div class="absolute top-0 left-0 h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMzMTgyQ0UiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')]" />
         </div>
 
         {/* Gradient Overlays */}
-        <div class="absolute top-0 left-0 h-96 w-96 rounded-full bg-gradient-to-br from-[#3182CE]/20 to-transparent blur-3xl" />
-        <div class="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-gradient-to-tl from-[#63B3ED]/20 to-transparent blur-3xl" />
+        <div class="absolute top-0 left-0 h-96 w-96 rounded-full bg-gradient-to-br from-[#3182CE]/10 to-transparent blur-3xl" />
+        <div class="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-gradient-to-tl from-[#63B3ED]/10 to-transparent blur-3xl" />
 
         <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="text-center">
-            <div class="mb-8 inline-flex items-center rounded-full border border-[#3182CE]/30 bg-gradient-to-r from-[#3182CE]/20 to-[#63B3ED]/20 px-6 py-3 text-sm font-semibold text-[#63B3ED] shadow-lg backdrop-blur-sm">
+            <div class="mb-8 inline-flex items-center rounded-full border border-[#3182CE]/30 bg-gradient-to-r from-[#3182CE]/10 to-[#63B3ED]/10 px-6 py-3 text-sm font-semibold text-[#3182CE] shadow-lg">
               <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fill-rule="evenodd"
@@ -156,7 +153,7 @@ export default component$(() => {
               Denver's #1 Digital Marketing & Indoor Advertising Network
             </div>
 
-            <Heading1 color="white" class="mx-auto mb-8 max-w-5xl">
+            <Heading1 class="mx-auto mb-8 max-w-5xl text-gray-800">
               Dominate Your Market with{" "}
               <span class="bg-gradient-to-r from-[#3182CE] to-[#63B3ED] bg-clip-text text-transparent">
                 Premium Digital Marketing
@@ -166,7 +163,7 @@ export default component$(() => {
 
             <BodyText
               color="muted"
-              class="mx-auto mb-12 max-w-3xl text-gray-300"
+              class="mx-auto mb-12 max-w-3xl text-gray-600"
             >
               We don't just run ads — we build marketing empires. From
               high-impact indoor billboards to conversion-focused digital
@@ -220,7 +217,7 @@ export default component$(() => {
                 <div class="mb-2 text-3xl font-bold text-[#63B3ED] lg:text-4xl">
                   500+
                 </div>
-                <div class="text-sm font-medium text-gray-300">
+                <div class="text-sm font-medium text-slate-800">
                   Businesses Served
                 </div>
               </div>
@@ -228,7 +225,7 @@ export default component$(() => {
                 <div class="mb-2 text-3xl font-bold text-[#63B3ED] lg:text-4xl">
                   150%
                 </div>
-                <div class="text-sm font-medium text-gray-300">
+                <div class="text-sm font-medium text-slate-800">
                   Avg. ROI Increase
                 </div>
               </div>
@@ -236,7 +233,7 @@ export default component$(() => {
                 <div class="mb-2 text-3xl font-bold text-[#63B3ED] lg:text-4xl">
                   50+
                 </div>
-                <div class="text-sm font-medium text-gray-300">
+                <div class="text-sm font-medium text-slate-800">
                   Billboard Locations
                 </div>
               </div>
@@ -244,7 +241,7 @@ export default component$(() => {
                 <div class="mb-2 text-3xl font-bold text-[#63B3ED] lg:text-4xl">
                   24/7
                 </div>
-                <div class="text-sm font-medium text-gray-300">
+                <div class="text-sm font-medium text-slate-800">
                   Campaign Monitoring
                 </div>
               </div>
@@ -542,6 +539,165 @@ export default component$(() => {
                   </Typography>
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Boost Visibility Section */}
+      <section class="bg-white py-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-12 text-center">
+            <Heading2 class="mb-6">
+              Boost Visibility with Our{" "}
+              <span class="text-[#3182CE]">
+                Full-Service Digital Marketing Solutions
+              </span>
+            </Heading2>
+            <BodyText color="secondary" class="mx-auto max-w-3xl">
+              Beyond in-venue ads, we provide full-scale digital marketing to
+              help your business show up, stand out, and grow. Whether you're
+              just getting started or need help scaling your outreach, we've got
+              the tools and the team to support you.
+            </BodyText>
+          </div>
+
+          <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+            {/* Image */}
+            <div class="order-2 lg:order-1">
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Team collaboration on digital marketing strategies"
+                class="h-auto w-full rounded-lg shadow-lg"
+              />
+            </div>
+
+            {/* Services Grid */}
+            <div class="order-1 lg:order-2">
+              <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                {/* Google Business Profile Optimization */}
+                <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
+                  <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
+                    <svg
+                      class="h-6 w-6 text-[#3182CE]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  </div>
+                  <Typography variant="h4" class="mb-3">
+                    Google Business Profile Optimization
+                  </Typography>
+                  <Typography variant="small" color="primary">
+                    Get found on Google Maps and local search.
+                  </Typography>
+                </div>
+
+                {/* Website Design & SEO */}
+                <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
+                  <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
+                    <svg
+                      class="h-6 w-6 text-[#3182CE]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  <Typography variant="h4" class="mb-3">
+                    Website Design & SEO
+                  </Typography>
+                  <Typography variant="small" color="primary">
+                    Fast, mobile-ready websites built for performance.
+                  </Typography>
+                </div>
+
+                {/* Social Media Content */}
+                <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
+                  <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
+                    <svg
+                      class="h-6 w-6 text-[#3182CE]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M7 4V2a1 1 0 011-1h4a1 1 0 011 1v2m3 0V2a1 1 0 011-1h4a1 1 0 011 1v2m-3 4h.01M8 8h.01M12 8h.01M16 8h.01M7 12h.01M12 12h.01M16 12h.01M7 16h.01M12 16h.01M16 16h.01"
+                      />
+                    </svg>
+                  </div>
+                  <Typography variant="h4" class="mb-3">
+                    Social Media Content
+                  </Typography>
+                  <Typography variant="small" color="primary">
+                    Consistent posting and creative to grow your presence.
+                  </Typography>
+                </div>
+
+                {/* Pay-Per-Click Advertising */}
+                <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
+                  <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
+                    <svg
+                      class="h-6 w-6 text-[#3182CE]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+                      />
+                    </svg>
+                  </div>
+                  <Typography variant="h4" class="mb-3">
+                    Pay-Per-Click Advertising
+                  </Typography>
+                  <Typography variant="small" color="primary">
+                    Targeted ads that drive calls, clicks, and leads.
+                  </Typography>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div class="mt-12 text-center">
+            <div class="rounded-xl border border-gray-100 bg-gray-50 p-8">
+              <Typography variant="h4" class="mb-4">
+                Check out all our Solutions
+              </Typography>
+              <Typography variant="small" color="secondary" class="mb-6">
+                Explore tailored services designed to boost visibility, drive
+                leads, and grow your business. Each solution is crafted to
+                deliver real, measurable results.
+              </Typography>
+              <button class="rounded-lg bg-[#3182CE] px-8 py-3 text-base font-medium text-white shadow-lg transition-all duration-300 hover:bg-[#2C5282] hover:shadow-xl">
+                Get Started Today
+              </button>
             </div>
           </div>
         </div>
