@@ -108,19 +108,36 @@ export default component$(() => {
             </div>
             
             <div class="card">
-              <div class="card-icon">🏢</div>
+              <div class="card-icon">
+                <div style="width: 20px; height: 16px; background: currentColor; border-radius: 2px; position: relative;">
+                  <div style="position: absolute; top: 2px; left: 2px; right: 2px; height: 2px; background: var(--white); border-radius: 1px;"></div>
+                  <div style="position: absolute; bottom: 2px; left: 2px; right: 2px; height: 8px; background: var(--white); border-radius: 1px;"></div>
+                </div>
+              </div>
               <h3>Indoor Billboard Network</h3>
               <p>Premium locations across Denver with high foot traffic and engaged audiences.</p>
             </div>
-            
+
             <div class="card">
-              <div class="card-icon">📅</div>
+              <div class="card-icon">
+                <div style="width: 18px; height: 20px; background: currentColor; border-radius: 2px; position: relative;">
+                  <div style="position: absolute; top: 3px; left: 3px; right: 3px; height: 1px; background: var(--white);"></div>
+                  <div style="position: absolute; top: 6px; left: 3px; right: 3px; height: 1px; background: var(--white);"></div>
+                  <div style="position: absolute; top: 9px; left: 3px; right: 3px; height: 1px; background: var(--white);"></div>
+                  <div style="position: absolute; top: 12px; left: 3px; right: 3px; height: 1px; background: var(--white);"></div>
+                </div>
+              </div>
               <h3>Campaign Scheduling</h3>
               <p>Flexible scheduling options to reach your audience at the perfect time.</p>
             </div>
-            
+
             <div class="card">
-              <div class="card-icon">🎯</div>
+              <div class="card-icon">
+                <div style="width: 20px; height: 20px; border-radius: 50%; background: currentColor; position: relative;">
+                  <div style="position: absolute; top: 50%; left: 50%; width: 6px; height: 6px; background: var(--white); border-radius: 50%; transform: translate(-50%, -50%);"></div>
+                  <div style="position: absolute; top: 30%; left: 70%; width: 4px; height: 4px; background: var(--white); border-radius: 50%;"></div>
+                </div>
+              </div>
               <h3>Creative Design Support</h3>
               <p>Professional design services to create compelling ads that convert.</p>
             </div>
@@ -264,7 +281,7 @@ export default component$(() => {
             
             <div class="hero-image">
               <div style="display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
-                ���
+                🏆
               </div>
             </div>
           </div>
