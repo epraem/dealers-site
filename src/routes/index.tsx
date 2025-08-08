@@ -146,7 +146,7 @@ export default component$(() => {
 
         <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="text-center">
-            <div class="mb-8 inline-flex items-center rounded-full border border-[#3182CE]/30 bg-gradient-to-r from-[#3182CE]/10 to-[#63B3ED]/10 px-6 py-3 text-sm font-semibold text-[#3182CE] shadow-lg">
+            <div class="mb-8 inline-flex items-center rounded-full border border-[#2C5282]/30 bg-gradient-to-r from-[#2C5282]/10 to-[#63B3ED]/10 px-6 py-3 text-sm font-semibold text-[#2C5282] shadow-lg">
               <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fill-rule="evenodd"
@@ -261,7 +261,7 @@ export default component$(() => {
           <div class="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <Heading2 class="mb-6">
-                About <span class="text-[#3182CE]">Top Shelf</span>
+                About <span class="text-[#2C5282]">Top Shelf</span>
               </Heading2>
               <BodyText class="mb-6">
                 We are Denver's premier advertising and digital marketing
@@ -296,12 +296,14 @@ export default component$(() => {
             </div>
             <div class="relative">
               <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                srcset="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80 400w, https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80 800w"
+                sizes="(max-width: 768px) 100vw, 400px"
                 alt="Professional team collaborating on digital marketing strategies in modern office environment"
                 class="h-auto w-full rounded-2xl shadow-xl"
                 loading="lazy"
-                width="1000"
-                height="667"
+                width="400"
+                height="267"
                 decoding="async"
               />
             </div>
@@ -415,7 +417,7 @@ export default component$(() => {
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="mb-12 text-center">
             <Heading2 class="mb-6">
-              Our <span class="text-[#3182CE]">Services</span>
+              Our <span class="text-[#2C5282]">Services</span>
             </Heading2>
             <BodyText color="secondary" class="mx-auto max-w-3xl">
               Comprehensive digital marketing solutions designed to grow your
@@ -425,9 +427,9 @@ export default component$(() => {
 
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
-              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
-                <svg
-                  class="h-6 w-6 text-[#3182CE]"
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#2C5282]/10">
+                  <svg
+                    class="h-6 w-6 text-[#2C5282]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -467,9 +469,9 @@ export default component$(() => {
             </div>
 
             <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
-              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
-                <svg
-                  class="h-6 w-6 text-[#3182CE]"
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#2C5282]/10">
+                  <svg
+                    class="h-6 w-6 text-[#2C5282]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -509,9 +511,9 @@ export default component$(() => {
             </div>
 
             <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
-              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
-                <svg
-                  class="h-6 w-6 text-[#3182CE]"
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#2C5282]/10">
+                  <svg
+                    class="h-6 w-6 text-[#2C5282]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -559,7 +561,7 @@ export default component$(() => {
           <div class="mb-12 text-center">
             <Heading2 class="mb-6">
               Boost Visibility with Our{" "}
-              <span class="text-[#3182CE]">
+              <span class="text-[#2C5282]">
                 Full-Service Digital Marketing Solutions
               </span>
             </Heading2>
@@ -590,9 +592,9 @@ export default component$(() => {
               <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {/* Google Business Profile Optimization */}
                 <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
-                  <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
+                  <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#2C5282]/10">
                     <svg
-                      class="h-6 w-6 text-[#3182CE]"
+                      class="h-6 w-6 text-[#2C5282]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -621,9 +623,9 @@ export default component$(() => {
 
                 {/* Website Design & SEO */}
                 <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
-                  <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
+                  <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#2C5282]/10">
                     <svg
-                      class="h-6 w-6 text-[#3182CE]"
+                      class="h-6 w-6 text-[#2C5282]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -646,9 +648,9 @@ export default component$(() => {
 
                 {/* Social Media Content */}
                 <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
-                  <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
+                  <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#2C5282]/10">
                     <svg
-                      class="h-6 w-6 text-[#3182CE]"
+                      class="h-6 w-6 text-[#2C5282]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -673,7 +675,7 @@ export default component$(() => {
                 <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
                   <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
                     <svg
-                      class="h-6 w-6 text-[#3182CE]"
+                      class="h-6 w-6 text-[#2C5282]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -721,7 +723,7 @@ export default component$(() => {
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="mb-12 text-center">
             <Heading2 class="mb-6">
-              Our <span class="text-[#3182CE]">Success Stories</span>
+              Our <span class="text-[#2C5282]">Success Stories</span>
             </Heading2>
             <BodyText color="secondary" class="mx-auto max-w-3xl">
               See how we've helped businesses like yours achieve remarkable
@@ -748,7 +750,7 @@ export default component$(() => {
                   Increased foot traffic by 150% through targeted local SEO and
                   social media campaigns.
                 </Typography>
-                <div class="flex items-center text-sm font-medium text-[#3182CE]">
+                <div class="flex items-center text-sm font-medium text-[#2C5282]">
                   <span>View Case Study</span>
                   <svg
                     class="ml-2 h-4 w-4"
@@ -785,7 +787,7 @@ export default component$(() => {
                   Boosted online sales by 200% with comprehensive e-commerce
                   marketing strategy.
                 </Typography>
-                <div class="flex items-center text-sm font-medium text-[#3182CE]">
+                <div class="flex items-center text-sm font-medium text-[#2C5282]">
                   <span>View Case Study</span>
                   <svg
                     class="ml-2 h-4 w-4"
@@ -822,7 +824,7 @@ export default component$(() => {
                   Generated 300+ new patient leads through targeted PPC and
                   content marketing.
                 </Typography>
-                <div class="flex items-center text-sm font-medium text-[#3182CE]">
+                <div class="flex items-center text-sm font-medium text-[#2C5282]">
                   <span>View Case Study</span>
                   <svg
                     class="ml-2 h-4 w-4"
@@ -849,7 +851,7 @@ export default component$(() => {
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="mb-12 text-center">
             <h2 class="mb-6 text-2xl font-bold text-[#2D3748] lg:text-3xl">
-              What Our <span class="text-[#3182CE]">Clients Say</span>
+              What Our <span class="text-[#2C5282]">Clients Say</span>
             </h2>
             <p class="mx-auto max-w-3xl text-base text-[#4A5568]">
               Don't just take our word for it. Here's what our satisfied clients
@@ -873,7 +875,7 @@ export default component$(() => {
                   <h4 class="text-sm font-semibold text-[#2D3748]">
                     Mike Johnson
                   </h4>
-                  <p class="text-xs text-[#718096]">Restaurant Owner</p>
+                  <p class="text-xs text-[#4A5568]">Restaurant Owner</p>
                 </div>
               </div>
               <p class="mb-3 text-sm text-[#4A5568] italic">
@@ -914,7 +916,7 @@ export default component$(() => {
                   <h4 class="text-sm font-semibold text-[#2D3748]">
                     Sarah Chen
                   </h4>
-                  <p class="text-xs text-[#718096]">E-commerce Director</p>
+                  <p class="text-xs text-[#4A5568]">E-commerce Director</p>
                 </div>
               </div>
               <p class="mb-3 text-sm text-[#4A5568] italic">
@@ -955,7 +957,7 @@ export default component$(() => {
                   <h4 class="text-sm font-semibold text-[#2D3748]">
                     Dr. Robert Martinez
                   </h4>
-                  <p class="text-xs text-[#718096]">Medical Practice Owner</p>
+                  <p class="text-xs text-[#4A5568]">Medical Practice Owner</p>
                 </div>
               </div>
               <p class="mb-3 font-['Figtree'] text-sm text-[#4A5568] italic">
@@ -989,7 +991,7 @@ export default component$(() => {
         <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div class="mb-12 text-center">
             <h2 class="mb-6 text-2xl font-bold text-[#2D3748] lg:text-3xl">
-              Frequently Asked <span class="text-[#3182CE]">Questions</span>
+              Frequently Asked <span class="text-[#2C5282]">Questions</span>
             </h2>
             <p class="text-base text-[#4A5568]">
               Get answers to the most common questions about our digital

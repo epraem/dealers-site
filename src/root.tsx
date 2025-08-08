@@ -23,8 +23,13 @@ export default component$(() => {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=optional"
           rel="stylesheet"
+          media="print"
+          onLoad$={(event) => {
+            const target = event.target as HTMLLinkElement;
+            target.media = 'all';
+          }}
         />
         {!isDev && (
           <link

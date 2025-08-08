@@ -12,7 +12,7 @@ export const Typography = component$<TypographyProps>(
       secondary: "text-[#4A5568]",
       muted: "text-[#A0AEC0]",
       white: "text-white",
-      accent: "text-[#3182CE]",
+      accent: "text-[#2C5282]",
       light: "text-gray-300",
     };
 
