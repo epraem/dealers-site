@@ -71,11 +71,14 @@ export default component$(() => {
             
             <div class="hero-image">
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%; height: 100%; padding: 1rem;">
-                <div style="background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
-                  🏢
+                <div style="background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 12px; position: relative; overflow: hidden;">
+                  <div style="position: absolute; top: 20%; left: 20%; width: 60%; height: 60%; background: rgba(255,255,255,0.2); border-radius: 4px;"></div>
+                  <div style="position: absolute; bottom: 20%; right: 20%; width: 40%; height: 20%; background: rgba(255,255,255,0.3); border-radius: 2px;"></div>
                 </div>
-                <div style="background: linear-gradient(135deg, #1e293b, #475569); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
-                  🌃
+                <div style="background: linear-gradient(135deg, #1e293b, #475569); border-radius: 12px; position: relative; overflow: hidden;">
+                  <div style="position: absolute; top: 10%; left: 10%; width: 30%; height: 80%; background: rgba(255,255,255,0.1); border-radius: 2px;"></div>
+                  <div style="position: absolute; top: 15%; right: 15%; width: 25%; height: 70%; background: rgba(255,255,255,0.15); border-radius: 2px;"></div>
+                  <div style="position: absolute; bottom: 20%; left: 50%; width: 35%; height: 60%; background: rgba(255,255,255,0.2); border-radius: 2px;"></div>
                 </div>
               </div>
             </div>
