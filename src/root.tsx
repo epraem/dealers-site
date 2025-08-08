@@ -31,6 +31,7 @@ export default component$(() => {
             target.media = 'all';
           }}
         />
+        <link rel="canonical" href="https://dealers-site.vercel.app/" />
         {!isDev && (
           <link
             rel="manifest"
