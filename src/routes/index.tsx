@@ -1,444 +1,1032 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { Logo } from "../components/ui/Logo";
+import {
+  Heading1,
+  Heading2,
+  BodyText,
+  Typography,
+} from "../components/ui/Typography";
 
 export default component$(() => {
+  const isMenuOpen = useSignal(false);
+  const openFaqIndex = useSignal<number | null>(null);
+
   return (
     <>
       {/* Header */}
-      <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
-        <div class="container">
-          <nav class="flex items-center justify-between py-4">
-            <a href="/" class="logo">
-              TOP SHELF
-              <div style="font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; margin-top: -4px;">
-                ADVERTISING
-              </div>
-            </a>
-            
-            <div class="hidden md:flex items-center gap-8">
-              <a href="#home" class="nav-link">Home</a>
-              <div class="relative group">
-                <a href="#services" class="nav-link flex items-center gap-1">
-                  Indoor Billboards
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                    <path d="M6 8.5L2.5 5h7L6 8.5z"/>
-                  </svg>
-                </a>
-              </div>
-              <div class="relative group">
-                <a href="#solutions" class="nav-link flex items-center gap-1">
-                  Solutions
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                    <path d="M6 8.5L2.5 5h7L6 8.5z"/>
-                  </svg>
-                </a>
-              </div>
-              <a href="#about" class="nav-link">About Us</a>
-              <a href="#contact" class="btn btn-primary">Contact Us</a>
+      <header class="fixed top-0 right-0 left-0 z-50 border-b border-gray-200 bg-white shadow-sm">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <nav class="flex h-16 items-center justify-between">
+            {/* Logo */}
+            <Logo />
+
+            {/* Desktop Navigation */}
+            <div class="hidden items-center space-x-6 md:flex">
+              <a
+                href="#home"
+                class="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#3182CE]"
+              >
+                Home
+              </a>
+              <a
+                href="#about"
+                class="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#3182CE]"
+              >
+                About
+              </a>
+              <a
+                href="#services"
+                class="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#3182CE]"
+              >
+                Services
+              </a>
+              <a
+                href="#portfolio"
+                class="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#3182CE]"
+              >
+                Portfolio
+              </a>
+              <a
+                href="#testimonials"
+                class="text-sm font-medium text-[#4A5568] transition-colors hover:text-[#3182CE]"
+              >
+                Testimonials
+              </a>
+              <a
+                href="#contact"
+                class="rounded-lg bg-[#3182CE] px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-[#2C5282]"
+              >
+                Contact Us
+              </a>
             </div>
 
             {/* Mobile menu button */}
-            <button class="md:hidden flex flex-col gap-1 p-2" aria-label="Menu">
-              <span class="w-6 h-0.5 bg-gray-800"></span>
-              <span class="w-6 h-0.5 bg-gray-800"></span>
-              <span class="w-6 h-0.5 bg-gray-800"></span>
+            <button
+              class="rounded-lg p-2 text-[#2D3748] transition-colors hover:bg-gray-100 hover:text-[#3182CE] md:hidden"
+              onClick$={() => (isMenuOpen.value = !isMenuOpen.value)}
+              aria-label="Toggle menu"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
             </button>
           </nav>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen.value && (
+            <div class="border-t border-gray-200 py-4 md:hidden">
+              <div class="flex flex-col space-y-3">
+                <a
+                  href="#home"
+                  class="py-2 text-sm font-medium text-[#4A5568] hover:text-[#3182CE]"
+                >
+                  Home
+                </a>
+                <a
+                  href="#about"
+                  class="py-2 text-sm font-medium text-[#4A5568] hover:text-[#3182CE]"
+                >
+                  About
+                </a>
+                <a
+                  href="#services"
+                  class="py-2 text-sm font-medium text-[#4A5568] hover:text-[#3182CE]"
+                >
+                  Services
+                </a>
+                <a
+                  href="#portfolio"
+                  class="py-2 text-sm font-medium text-[#4A5568] hover:text-[#3182CE]"
+                >
+                  Portfolio
+                </a>
+                <a
+                  href="#testimonials"
+                  class="py-2 text-sm font-medium text-[#4A5568] hover:text-[#3182CE]"
+                >
+                  Testimonials
+                </a>
+                <a
+                  href="#contact"
+                  class="mt-4 rounded-lg bg-[#3182CE] px-5 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-[#2C5282]"
+                >
+                  Contact Us
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </header>
 
       {/* Hero Section */}
-      <section id="home" class="section" style="padding-top: 2rem;">
-        <div class="container">
-          <div class="grid-2" style="gap: 4rem;">
-            <div class="animate-fade-in">
-              <div class="badge">
-                🏆 Premium Marketing Solutions
-              </div>
-              <h1>
-                Local Advertising and Digital Marketing Pros in <span class="text-highlight">Denver</span>
-              </h1>
-              <p style="font-size: 1.125rem; color: var(--text-light); margin-bottom: 2rem;">
-                Helping Businesses Get Noticed —On Screens and Online
-              </p>
-              <a href="#contact" class="btn btn-primary">
-                Contact Our Advertising Experts
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8.5 3.5L13 8l-4.5 4.5M13 8H3"/>
+      <section
+        id="home"
+        class="relative overflow-hidden bg-gradient-to-r from-[#1A202C] via-[#2D3748] to-[#1A202C] pt-24 pb-20"
+      >
+        {/* Background Pattern */}
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-0 left-0 h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')]" />
+        </div>
+
+        {/* Gradient Overlays */}
+        <div class="absolute top-0 left-0 h-96 w-96 rounded-full bg-gradient-to-br from-[#3182CE]/20 to-transparent blur-3xl" />
+        <div class="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-gradient-to-tl from-[#63B3ED]/20 to-transparent blur-3xl" />
+
+        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="text-center">
+            <div class="mb-8 inline-flex items-center rounded-full border border-[#3182CE]/30 bg-gradient-to-r from-[#3182CE]/20 to-[#63B3ED]/20 px-6 py-3 text-sm font-semibold text-[#63B3ED] shadow-lg backdrop-blur-sm">
+              <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Denver's #1 Digital Marketing & Indoor Advertising Network
+            </div>
+
+            <Heading1 color="white" class="mx-auto mb-8 max-w-5xl">
+              Dominate Your Market with{" "}
+              <span class="bg-gradient-to-r from-[#3182CE] to-[#63B3ED] bg-clip-text text-transparent">
+                Premium Digital Marketing
+              </span>{" "}
+              & Indoor Billboard Solutions
+            </Heading1>
+
+            <BodyText
+              color="muted"
+              class="mx-auto mb-12 max-w-3xl text-gray-300"
+            >
+              We don't just run ads — we build marketing empires. From
+              high-impact indoor billboards to conversion-focused digital
+              campaigns, we turn your business into the talk of Denver.
+            </BodyText>
+
+            <div class="mb-16 flex flex-col items-center justify-center gap-6 sm:flex-row">
+              <a
+                href="#contact"
+                class="group inline-flex transform items-center justify-center rounded-xl bg-gradient-to-r from-[#3182CE] to-[#2C5282] px-8 py-4 text-lg font-semibold text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:from-[#2C5282] hover:to-[#2A4365] hover:shadow-2xl"
+              >
+                Get Your Free Strategy Session
+                <svg
+                  class="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </a>
+              <a
+                href="tel:(303) 555-0123"
+                class="group inline-flex items-center justify-center rounded-xl border-2 border-[#63B3ED] px-8 py-4 text-lg font-semibold text-[#63B3ED] shadow-lg transition-all duration-300 hover:bg-[#63B3ED] hover:text-white hover:shadow-xl"
+              >
+                <svg
+                  class="mr-3 h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                Call (303) 555-0123
+              </a>
             </div>
-            
-            <div class="hero-image">
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%; height: 100%; padding: 1rem;">
-                <div style="background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 12px; position: relative; overflow: hidden;">
-                  <div style="position: absolute; top: 20%; left: 20%; width: 60%; height: 60%; background: rgba(255,255,255,0.2); border-radius: 4px;"></div>
-                  <div style="position: absolute; bottom: 20%; right: 20%; width: 40%; height: 20%; background: rgba(255,255,255,0.3); border-radius: 2px;"></div>
+
+            {/* Stats Section */}
+            <div class="mx-auto grid max-w-4xl grid-cols-2 gap-8 md:grid-cols-4">
+              <div class="text-center">
+                <div class="mb-2 text-3xl font-bold text-[#63B3ED] lg:text-4xl">
+                  500+
                 </div>
-                <div style="background: linear-gradient(135deg, #1e293b, #475569); border-radius: 12px; position: relative; overflow: hidden;">
-                  <div style="position: absolute; top: 10%; left: 10%; width: 30%; height: 80%; background: rgba(255,255,255,0.1); border-radius: 2px;"></div>
-                  <div style="position: absolute; top: 15%; right: 15%; width: 25%; height: 70%; background: rgba(255,255,255,0.15); border-radius: 2px;"></div>
-                  <div style="position: absolute; bottom: 20%; left: 50%; width: 35%; height: 60%; background: rgba(255,255,255,0.2); border-radius: 2px;"></div>
+                <div class="text-sm font-medium text-gray-300">
+                  Businesses Served
                 </div>
               </div>
+              <div class="text-center">
+                <div class="mb-2 text-3xl font-bold text-[#63B3ED] lg:text-4xl">
+                  150%
+                </div>
+                <div class="text-sm font-medium text-gray-300">
+                  Avg. ROI Increase
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="mb-2 text-3xl font-bold text-[#63B3ED] lg:text-4xl">
+                  50+
+                </div>
+                <div class="text-sm font-medium text-gray-300">
+                  Billboard Locations
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="mb-2 text-3xl font-bold text-[#63B3ED] lg:text-4xl">
+                  24/7
+                </div>
+                <div class="text-sm font-medium text-gray-300">
+                  Campaign Monitoring
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Us Section */}
+      <section id="about" class="bg-white py-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <Heading2 class="mb-6">
+                About <span class="text-[#3182CE]">Top Shelf</span>
+              </Heading2>
+              <BodyText class="mb-6">
+                We are Denver's premier advertising and digital marketing
+                agency, specializing in helping local businesses reach their
+                target audience through innovative marketing strategies and
+                cutting-edge technology.
+              </BodyText>
+              <BodyText class="mb-8">
+                With over 10 years of experience in the industry, our team of
+                experts has helped hundreds of businesses grow their online
+                presence and increase their revenue through strategic marketing
+                campaigns.
+              </BodyText>
+              <div class="grid grid-cols-2 gap-6">
+                <div class="text-center">
+                  <Typography variant="h3" color="accent" class="mb-2">
+                    500+
+                  </Typography>
+                  <Typography variant="small" color="accent">
+                    Happy Clients
+                  </Typography>
+                </div>
+                <div class="text-center">
+                  <Typography variant="h3" color="accent" class="mb-2">
+                    10+
+                  </Typography>
+                  <Typography variant="small" color="accent">
+                    Years Experience
+                  </Typography>
+                </div>
+              </div>
+            </div>
+            <div class="relative">
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="Team collaboration"
+                class="h-auto w-full rounded-2xl shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Indoor Digital Signage Section */}
+      <section class="bg-gradient-to-br from-[#3182CE] to-[#2C5282] py-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid items-center gap-12 lg:grid-cols-2">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+                <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-white/20">
+                  <span class="text-sm font-medium text-white">Ad</span>
+                </div>
+                <Typography variant="small" color="white" class="text-white/90">
+                  Ads displayed on indoor digital screens in high-traffic
+                  venues.
+                </Typography>
+              </div>
+
+              <div class="rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+                <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-white/20">
+                  <svg
+                    class="h-5 w-5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h4a1 1 0 011 1v5m-6 0V9a1 1 0 011-1h4a1 1 0 011 1v2"
+                    />
+                  </svg>
+                </div>
+                <Typography variant="small" color="white" class="text-white/90">
+                  Targeted placements by neighborhood, audience, or venue type.
+                </Typography>
+              </div>
+
+              <div class="rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+                <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-white/20">
+                  <svg
+                    class="h-5 w-5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <Typography variant="small" color="white" class="text-white/90">
+                  Flexible content scheduling and campaign reporting.
+                </Typography>
+              </div>
+
+              <div class="rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+                <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-white/20">
+                  <svg
+                    class="h-5 w-5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <Typography variant="small" color="white" class="text-white/90">
+                  Custom motion graphic designs.
+                </Typography>
+              </div>
+            </div>
+
+            <div>
+              <Heading2 color="white" class="mb-6">
+                Reach Customers with{" "}
+                <span class="text-[#90CDF4]">Indoor Digital Signage</span>{" "}
+                Across Denver
+              </Heading2>
+              <BodyText color="white" class="mb-8 text-white/90">
+                Our Denver-based indoor advertising network puts your brand in
+                front of real people, in real venues—restaurants, gyms, salons,
+                retail spaces, and more. Whether you're promoting daily specials
+                or building brand awareness, our digital signage network
+                delivers impactful, high-frequency exposure where it matters
+                most.
+              </BodyText>
+              <button class="rounded-lg bg-[#63B3ED] px-6 py-3 text-base font-medium text-white shadow-lg transition-all duration-300 hover:bg-[#90CDF4] hover:shadow-xl">
+                Explore Our Digital Ad Services →
+              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" class="section section-blue">
-        <div class="container">
-          <div class="section-title">
-            <h2>Reach Customers with Indoor Digital Signage Across Denver</h2>
-            <p>Our DTN's targeted indoor advertising network puts your brand in front of your target audience with high-impact visuals. Captivate customers and drive results with advertising solutions that can't be turned off, tuned out, skipped, or ignored. High-frequency exposure means a million touchpoints.</p>
+      <section id="services" class="bg-white py-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-12 text-center">
+            <Heading2 class="mb-6">
+              Our <span class="text-[#3182CE]">Services</span>
+            </Heading2>
+            <BodyText color="secondary" class="mx-auto max-w-3xl">
+              Comprehensive digital marketing solutions designed to grow your
+              business.
+            </BodyText>
           </div>
-          
-          <div class="grid-4">
-            <div class="card">
-              <div class="card-icon">
-                <div style="width: 20px; height: 20px; background: currentColor; border-radius: 2px; position: relative;">
-                  <div style="position: absolute; bottom: 0; left: 2px; width: 3px; height: 12px; background: var(--white); border-radius: 1px;"></div>
-                  <div style="position: absolute; bottom: 0; left: 7px; width: 3px; height: 8px; background: var(--white); border-radius: 1px;"></div>
-                  <div style="position: absolute; bottom: 0; left: 12px; width: 3px; height: 15px; background: var(--white); border-radius: 1px;"></div>
-                </div>
+
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
+                <svg
+                  class="h-6 w-6 text-[#3182CE]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
               </div>
-              <h3>Targeted Marketing Analytics</h3>
-              <p>Real-time data and insights to optimize your campaigns and maximize ROI.</p>
-            </div>
-            
-            <div class="card">
-              <div class="card-icon">
-                <div style="width: 20px; height: 16px; background: currentColor; border-radius: 2px; position: relative;">
-                  <div style="position: absolute; top: 2px; left: 2px; right: 2px; height: 2px; background: var(--white); border-radius: 1px;"></div>
-                  <div style="position: absolute; bottom: 2px; left: 2px; right: 2px; height: 8px; background: var(--white); border-radius: 1px;"></div>
-                </div>
-              </div>
-              <h3>Indoor Billboard Network</h3>
-              <p>Premium locations across Denver with high foot traffic and engaged audiences.</p>
+              <Typography variant="h4" class="mb-3">
+                Indoor Digital Signage
+              </Typography>
+              <Typography variant="small" color="primary" class="mb-4">
+                Strategic placement of your ads on digital screens in
+                high-traffic venues across Denver.
+              </Typography>
+              <ul class="space-y-1">
+                <li>
+                  <Typography variant="small" color="primary">
+                    • Targeted venue placement
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="small" color="primary">
+                    • Custom motion graphics
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="small" color="primary">
+                    • Real-time campaign reporting
+                  </Typography>
+                </li>
+              </ul>
             </div>
 
-            <div class="card">
-              <div class="card-icon">
-                <div style="width: 18px; height: 20px; background: currentColor; border-radius: 2px; position: relative;">
-                  <div style="position: absolute; top: 3px; left: 3px; right: 3px; height: 1px; background: var(--white);"></div>
-                  <div style="position: absolute; top: 6px; left: 3px; right: 3px; height: 1px; background: var(--white);"></div>
-                  <div style="position: absolute; top: 9px; left: 3px; right: 3px; height: 1px; background: var(--white);"></div>
-                  <div style="position: absolute; top: 12px; left: 3px; right: 3px; height: 1px; background: var(--white);"></div>
-                </div>
+            <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
+                <svg
+                  class="h-6 w-6 text-[#3182CE]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
               </div>
-              <h3>Campaign Scheduling</h3>
-              <p>Flexible scheduling options to reach your audience at the perfect time.</p>
+              <Typography variant="h4" class="mb-3">
+                Search Engine Optimization
+              </Typography>
+              <Typography variant="small" color="primary" class="mb-4">
+                Improve your online visibility and rank higher in local search
+                results.
+              </Typography>
+              <ul class="space-y-1">
+                <li>
+                  <Typography variant="small" color="primary">
+                    • Local SEO optimization
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="small" color="primary">
+                    • Keyword research & strategy
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="small" color="primary">
+                    • Technical SEO audits
+                  </Typography>
+                </li>
+              </ul>
             </div>
 
-            <div class="card">
-              <div class="card-icon">
-                <div style="width: 20px; height: 20px; border-radius: 50%; background: currentColor; position: relative;">
-                  <div style="position: absolute; top: 50%; left: 50%; width: 6px; height: 6px; background: var(--white); border-radius: 50%; transform: translate(-50%, -50%);"></div>
-                  <div style="position: absolute; top: 30%; left: 70%; width: 4px; height: 4px; background: var(--white); border-radius: 50%;"></div>
-                </div>
+            <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3182CE]/10">
+                <svg
+                  class="h-6 w-6 text-[#3182CE]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 4v10a2 2 0 002 2h8a2 2 0 002-2V8M7 8h10"
+                  />
+                </svg>
               </div>
-              <h3>Creative Design Support</h3>
-              <p>Professional design services to create compelling ads that convert.</p>
+              <Typography variant="h4" class="mb-3">
+                Social Media Marketing
+              </Typography>
+              <Typography variant="small" color="primary" class="mb-4">
+                Build your brand presence and engage with customers across
+                social platforms.
+              </Typography>
+              <ul class="space-y-1">
+                <li>
+                  <Typography variant="small" color="primary">
+                    • Content creation & scheduling
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="small" color="primary">
+                    • Community management
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="small" color="primary">
+                    • Paid social advertising
+                  </Typography>
+                </li>
+              </ul>
             </div>
           </div>
-          
-          <div style="text-align: center; margin-top: 3rem;">
-            <a href="#contact" class="btn btn-secondary">
-              Learn More About Our Network
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                <path d="M8.5 3.5L13 8l-4.5 4.5M13 8H3"/>
+        </div>
+      </section>
+
+      {/* Portfolio/Case Studies Section */}
+      <section id="portfolio" class="bg-gray-50 py-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-12 text-center">
+            <Heading2 class="mb-6">
+              Our <span class="text-[#3182CE]">Success Stories</span>
+            </Heading2>
+            <BodyText color="secondary" class="mx-auto max-w-3xl">
+              See how we've helped businesses like yours achieve remarkable
+              growth through strategic digital marketing.
+            </BodyText>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div class="overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
+              <img
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                alt="Restaurant marketing case study"
+                class="h-40 w-full object-cover"
+              />
+              <div class="p-5">
+                <Typography variant="h4" class="mb-2">
+                  Local Restaurant Chain
+                </Typography>
+                <Typography variant="small" color="primary" class="mb-3">
+                  Increased foot traffic by 150% through targeted local SEO and
+                  social media campaigns.
+                </Typography>
+                <div class="flex items-center text-sm font-medium text-[#3182CE]">
+                  <span>View Case Study</span>
+                  <svg
+                    class="ml-2 h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
+              <img
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                alt="Retail store marketing"
+                class="h-40 w-full object-cover"
+              />
+              <div class="p-5">
+                <Typography variant="h4" class="mb-2">
+                  Fashion Retailer
+                </Typography>
+                <Typography variant="small" color="primary" class="mb-3">
+                  Boosted online sales by 200% with comprehensive e-commerce
+                  marketing strategy.
+                </Typography>
+                <div class="flex items-center text-sm font-medium text-[#3182CE]">
+                  <span>View Case Study</span>
+                  <svg
+                    class="ml-2 h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
+              <img
+                src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                alt="Healthcare marketing"
+                class="h-40 w-full object-cover"
+              />
+              <div class="p-5">
+                <Typography variant="h4" class="mb-2">
+                  Healthcare Practice
+                </Typography>
+                <Typography variant="small" color="primary" class="mb-3">
+                  Generated 300+ new patient leads through targeted PPC and
+                  content marketing.
+                </Typography>
+                <div class="flex items-center text-sm font-medium text-[#3182CE]">
+                  <span>View Case Study</span>
+                  <svg
+                    class="ml-2 h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" class="bg-white py-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-12 text-center">
+            <h2 class="mb-6 text-2xl font-bold text-[#2D3748] lg:text-3xl">
+              What Our <span class="text-[#3182CE]">Clients Say</span>
+            </h2>
+            <p class="mx-auto max-w-3xl text-base text-[#4A5568]">
+              Don't just take our word for it. Here's what our satisfied clients
+              have to say about our services.
+            </p>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div class="rounded-xl bg-gray-50 p-6 transition-all duration-300 hover:shadow-lg">
+              <div class="mb-4 flex items-center">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80"
+                  alt="Client testimonial"
+                  class="mr-3 h-10 w-10 rounded-full object-cover"
+                />
+                <div>
+                  <h4 class="text-sm font-semibold text-[#2D3748]">
+                    Mike Johnson
+                  </h4>
+                  <p class="text-xs text-[#718096]">Restaurant Owner</p>
+                </div>
+              </div>
+              <p class="mb-3 text-sm text-[#4A5568] italic">
+                "Top Shelf transformed our online presence completely. Our
+                reservations increased by 180% in just 3 months!"
+              </p>
+              <div class="flex text-yellow-400">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="rounded-xl bg-gray-50 p-6 transition-all duration-300 hover:shadow-lg">
+              <div class="mb-4 flex items-center">
+                <img
+                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80"
+                  alt="Client testimonial"
+                  class="mr-3 h-10 w-10 rounded-full object-cover"
+                />
+                <div>
+                  <h4 class="text-sm font-semibold text-[#2D3748]">
+                    Sarah Chen
+                  </h4>
+                  <p class="text-xs text-[#718096]">E-commerce Director</p>
+                </div>
+              </div>
+              <p class="mb-3 text-sm text-[#4A5568] italic">
+                "The ROI we've seen from their campaigns is incredible. Our
+                online sales doubled within 6 months!"
+              </p>
+              <div class="flex text-yellow-400">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="rounded-xl bg-gray-50 p-6 transition-all duration-300 hover:shadow-lg">
+              <div class="mb-4 flex items-center">
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80"
+                  alt="Client testimonial"
+                  class="mr-3 h-10 w-10 rounded-full object-cover"
+                />
+                <div>
+                  <h4 class="text-sm font-semibold text-[#2D3748]">
+                    Dr. Robert Martinez
+                  </h4>
+                  <p class="text-xs text-[#718096]">Medical Practice Owner</p>
+                </div>
+              </div>
+              <p class="mb-3 font-['Figtree'] text-sm text-[#4A5568] italic">
+                "Professional, results-driven, and always available. They've
+                helped us reach more patients than ever before."
+              </p>
+              <div class="flex text-yellow-400">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" class="bg-gray-50 py-16">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-12 text-center">
+            <h2 class="mb-6 text-2xl font-bold text-[#2D3748] lg:text-3xl">
+              Frequently Asked <span class="text-[#3182CE]">Questions</span>
+            </h2>
+            <p class="text-base text-[#4A5568]">
+              Get answers to the most common questions about our digital
+              marketing services.
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            {[
+              {
+                question:
+                  "How long does it take to see results from digital marketing?",
+                answer:
+                  "Results vary depending on the strategy, but most clients see initial improvements within 30-60 days. SEO typically takes 3-6 months for significant results, while PPC campaigns can show immediate traffic increases.",
+              },
+              {
+                question: "What makes your agency different from others?",
+                answer:
+                  "We focus exclusively on local Denver businesses and combine traditional advertising expertise with cutting-edge digital strategies. Our team provides personalized service and transparent reporting on all campaigns.",
+              },
+              {
+                question: "Do you work with small businesses?",
+                answer:
+                  "Absolutely! We work with businesses of all sizes, from startups to established enterprises. We tailor our strategies and pricing to fit your budget and goals.",
+              },
+              {
+                question: "What's included in your digital marketing packages?",
+                answer:
+                  "Our packages typically include strategy development, campaign setup and management, content creation, performance tracking, and monthly reporting. Specific services vary based on your chosen package.",
+              },
+            ].map((faq, index) => (
+              <div
+                key={index}
+                class="rounded-xl bg-white shadow-sm transition-all duration-300 hover:shadow-md"
+              >
+                <button
+                  class="focus:ring-opacity-50 w-full rounded-xl p-5 text-left focus:ring-2 focus:ring-[#3182CE] focus:outline-none"
+                  onClick$={() => {
+                    openFaqIndex.value =
+                      openFaqIndex.value === index ? null : index;
+                  }}
+                >
+                  <div class="flex items-center justify-between">
+                    <h3 class="pr-4 text-lg font-semibold text-[#2D3748]">
+                      {faq.question}
+                    </h3>
+                    <svg
+                      class={`h-5 w-5 flex-shrink-0 text-[#4A5568] transition-transform duration-200 ${
+                        openFaqIndex.value === index
+                          ? "rotate-180 transform"
+                          : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
+                </button>
+                {openFaqIndex.value === index && (
+                  <div class="px-5 pb-5">
+                    <p class="text-sm leading-relaxed text-[#4A5568]">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section
+        id="contact"
+        class="bg-gradient-to-r from-[#3182CE] to-[#2B6CB0] py-16"
+      >
+        <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 class="mb-6 text-2xl font-bold text-white lg:text-3xl">
+            Ready to Elevate Your Brand?
+          </h2>
+          <p class="mb-8 text-base leading-relaxed text-gray-200">
+            Let's discuss how our premium advertising solutions can help your
+            business reach new heights in Denver.
+          </p>
+          <div class="flex flex-col justify-center gap-4 sm:flex-row">
+            <a
+              href="mailto:hello@topshelfadvertising.com"
+              class="btn-hover-effect inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-[#3182CE] transition-all duration-300 hover:bg-gray-100"
+            >
+              Get Started Today
+              <svg
+                class="ml-2 h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </a>
+            <a
+              href="tel:+13035550123"
+              class="inline-flex items-center justify-center rounded-lg border-2 border-white px-6 py-3 text-base font-semibold text-white transition-all duration-300 hover:bg-white hover:text-[#3182CE]"
+            >
+              Call (303) 555-0123
+              <svg
+                class="ml-2 h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
               </svg>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Partner Network Section */}
-      <section class="section section-alt">
-        <div class="container">
-          <div class="grid-2" style="gap: 4rem;">
-            <div class="hero-image" style="aspect-ratio: 16/10;">
-              <div style="display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
-                🤝
-              </div>
-            </div>
-            
-            <div>
-              <h2>Venue Partner Network</h2>
-              <p>Our network is how local businesses like yours work their audience. Every month millions of people engage with our content, making our digital advertising network one of the most powerful in the region.</p>
-              <p>Join the network of businesses that trust our advertising solutions for maximum impact and reach.</p>
-              <a href="#contact" class="btn btn-primary">
-                Become a Venue Partner
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8.5 3.5L13 8l-4.5 4.5M13 8H3"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Marketing Solutions Section */}
-      <section class="section">
-        <div class="container">
-          <div class="section-title">
-            <h2>Boost Visibility with Our Full-Service Digital Marketing Solutions</h2>
-            <p>From strategy to execution, we deliver comprehensive marketing solutions that drive results. Whether you're just getting started or ready to level up your success, we've got the tools and tips and teams to support you.</p>
-          </div>
-          
-          <div class="grid-3">
-            <div class="card">
-              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                <div style="width: 60px; height: 60px; background: #fee2e2; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #dc2626;">
-                  👥
-                </div>
-                <div>
-                  <h3 style="margin-bottom: 0;">Team Collaboration</h3>
-                  <p style="margin-bottom: 0; font-size: 0.875rem;">Expert teams working together</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="card">
-              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                <div style="width: 60px; height: 60px; background: #dbeafe; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #2563eb;">
-                  📈
-                </div>
-                <div>
-                  <h3 style="margin-bottom: 0;">Google Business Profile Optimization</h3>
-                  <p style="margin-bottom: 0; font-size: 0.875rem;">Maximize your local presence</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="card">
-              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                <div style="width: 60px; height: 60px; background: #f3e8ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #7c3aed;">
-                  🎨
-                </div>
-                <div>
-                  <h3 style="margin-bottom: 0;">Website Design & SEO</h3>
-                  <p style="margin-bottom: 0; font-size: 0.875rem;">Beautiful, optimized websites</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="card">
-              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                <div style="width: 60px; height: 60px; background: #ecfdf5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #059669;">
-                  #
-                </div>
-                <div>
-                  <h3 style="margin-bottom: 0;">Social Media Content</h3>
-                  <p style="margin-bottom: 0; font-size: 0.875rem;">Engaging social media presence</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="card">
-              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                <div style="width: 60px; height: 60px; background: #fef3c7; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #d97706;">
-                  💰
-                </div>
-                <div>
-                  <h3 style="margin-bottom: 0;">Pay-Per-Click Advertising</h3>
-                  <p style="margin-bottom: 0; font-size: 0.875rem;">Targeted online advertising</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="card">
-              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                <div style="width: 60px; height: 60px; background: #fee2e2; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #dc2626;">
-                  ✅
-                </div>
-                <div>
-                  <h3 style="margin-bottom: 0;">Check out all our Solutions</h3>
-                  <p style="margin-bottom: 0; font-size: 0.875rem;">Discover our full range of services</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section class="section section-alt">
-        <div class="container">
-          <div class="grid-2" style="gap: 4rem;">
-            <div>
-              <h2>Why Denver Businesses Choose Us</h2>
-              <p>We're not just another agency. We're your local advertising experts with years of expertise, helping businesses just like yours grow and connect to diverse communities across the city.</p>
-              <p>From high-traffic commercial areas to residential neighborhoods, we help you capitalize on the visibility and engagement that makes advertising work.</p>
-              <a href="#contact" class="btn btn-primary">
-                Get Started Today
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8.5 3.5L13 8l-4.5 4.5M13 8H3"/>
-                </svg>
-              </a>
-            </div>
-            
-            <div class="hero-image">
-              <div style="display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
-                🏆
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section class="section section-blue">
-        <div class="container" style="text-align: center;">
-          <h2>Let's Put Your Brand Where People Can't Miss It</h2>
-          <p style="font-size: 1.125rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-            Ready to elevate your business with effective advertising solutions? Let's work together to help you increase brand awareness and drive sales.
-          </p>
-          <a href="#contact" class="btn btn-secondary">
-            Contact Our Marketing Experts
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8.5 3.5L13 8l-4.5 4.5M13 8H3"/>
-            </svg>
-          </a>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section class="section">
-        <div class="container">
-          <div class="section-title">
-            <h2>FAQS</h2>
-          </div>
-          
-          <div style="max-width: 800px; margin: 0 auto;">
-            <div class="faq-item">
-              <button class="faq-question">
-                Is this placement of our ads in The indoor billboard business main page offerings bringing unmatched visibility across outdoor markets with your marketing?
-              </button>
-              <div class="faq-answer">
-                Our indoor billboard network provides premium placement in high-traffic locations across Denver, ensuring maximum visibility for your brand with targeted audience engagement.
-              </div>
-            </div>
-            
-            <div class="faq-item">
-              <button class="faq-question">
-                Can you help our business using our campaign?
-              </button>
-              <div class="faq-answer">
-                Absolutely! We provide full-service campaign management, from strategy development to creative design and performance optimization, ensuring your marketing goals are achieved.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section class="map-section">
-        <div class="container-lg">
-          <div class="grid-2" style="gap: 4rem; align-items: center; min-height: 400px;">
-            <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 2rem; backdrop-blur-sm;">
-              <h2 style="color: white; margin-bottom: 2rem;">We Put Local Brands on the Map</h2>
-              <p style="color: rgba(255,255,255,0.9); margin-bottom: 2rem;">
-                Targeted advertising for Denver-area businesses helps to attract and guide consumers. Navigate to success.
-              </p>
-              
-              <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
-                <div style="display: flex; align-items: center; gap: 0.5rem; color: white;">
-                  <span style="color: #22c55e;">✓</span> Downtown
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem; color: white;">
-                  <span style="color: #22c55e;">✓</span> Lakewood
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem; color: white;">
-                  <span style="color: #22c55e;">✓</span> Arvada
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem; color: white;">
-                  <span style="color: #22c55e;">✓</span> Centennial
-                </div>
-              </div>
-            </div>
-            
-            <div style="background: rgba(255,255,255,0.2); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; backdrop-blur-sm;">
-              <div style="color: white; font-size: 3rem;">🗺️</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section class="section">
-        <div class="container" style="text-align: center;">
-          <h2>Ready to Elevate Your Brand?</h2>
-          <p style="font-size: 1.125rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-            Join hundreds of successful businesses that have transformed their marketing with Top Shelf Advertising.
-          </p>
-          
-          <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 2rem;">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              style="padding: 12px 16px; border: 2px solid var(--border-color); border-radius: 8px; font-size: 16px; min-width: 280px;"
-            />
-            <button class="btn btn-primary">
-              Request Consultation
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer class="section section-blue" style="padding-top: 3rem; padding-bottom: 2rem;">
-        <div class="container">
-          <div class="grid-4" style="margin-bottom: 3rem;">
-            <div>
-              <div class="logo" style="color: white; margin-bottom: 1rem;">
-                TOP SHELF
-                <div style="font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; margin-top: -4px;">
+      <footer class="bg-[#2D3748] py-10 text-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid gap-6 md:grid-cols-4">
+            <div class="col-span-2">
+              <div class="mb-5 flex flex-col">
+                <span class="text-xl font-bold">TOP SHELF</span>
+                <span class="-mt-1 text-xs font-medium tracking-[0.2em] text-[#A0AEC0]">
                   ADVERTISING
-                </div>
+                </span>
               </div>
-              <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem;">
-                Denver's premier digital marketing and indoor advertising network, helping businesses grow through strategic marketing solutions.
+              <p class="mb-5 max-w-md text-sm text-[#A0AEC0]">
+                Denver's premier digital marketing and indoor advertising
+                network, helping businesses get noticed with premium solutions.
               </p>
-            </div>
-            
-            <div>
-              <h4 style="color: white; margin-bottom: 1rem;">Contact</h4>
-              <div style="color: rgba(255,255,255,0.8); font-size: 0.95rem;">
-                <p>📧 hello@topshelfadvertising.com</p>
-                <p>📞 (303) 555-0123</p>
-                <p>📍 Denver, Colorado</p>
+              <div class="flex space-x-3">
+                <a
+                  href="#"
+                  class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#3182CE] transition-colors hover:bg-[#2B6CB0]"
+                >
+                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#3182CE] transition-colors hover:bg-[#2B6CB0]"
+                >
+                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#3182CE] transition-colors hover:bg-[#2B6CB0]"
+                >
+                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                </a>
               </div>
             </div>
-            
+
             <div>
-              <h4 style="color: white; margin-bottom: 1rem;">Navigation Menu</h4>
-              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <a href="#home" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.95rem;">Home</a>
-                <a href="#services" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.95rem;">Indoor Billboards</a>
-                <a href="#solutions" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.95rem;">Solutions</a>
-                <a href="#about" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.95rem;">About</a>
-                <a href="#contact" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.95rem;">Contact</a>
-              </div>
+              <h3 class="mb-3 text-base font-semibold">Services</h3>
+              <ul class="space-y-2 text-sm text-[#A0AEC0]">
+                <li>
+                  <a href="#" class="transition-colors hover:text-white">
+                    Digital Marketing
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="transition-colors hover:text-white">
+                    Indoor Billboards
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="transition-colors hover:text-white">
+                    SEO Services
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="transition-colors hover:text-white">
+                    Social Media
+                  </a>
+                </li>
+              </ul>
             </div>
-            
+
             <div>
-              <h4 style="color: white; margin-bottom: 1rem;">Connect With Us</h4>
-              <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; margin-bottom: 1rem;">
-                Over 75% of small- to medium-sized businesses advertise using programmatic advertising. We can help you find your audience and grow your business.
-              </p>
-              <div style="display: flex; gap: 1rem;">
-                <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem;">📘</a>
-                <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem;">📸</a>
-                <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem;">🐦</a>
-              </div>
+              <h3 class="mb-3 text-base font-semibold">Contact</h3>
+              <ul class="space-y-2 text-sm text-[#A0AEC0]">
+                <li>Denver, Colorado</li>
+                <li>
+                  <a
+                    href="tel:+13035550123"
+                    class="transition-colors hover:text-white"
+                  >
+                    (303) 555-0123
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:hello@topshelfadvertising.com"
+                    class="transition-colors hover:text-white"
+                  >
+                    hello@topshelfadvertising.com
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-          
-          <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; text-align: center;">
-            <p style="color: rgba(255,255,255,0.8); font-size: 0.875rem;">
-              © 2024 Top Shelf Advertising. All rights reserved.
+
+          <div class="mt-10 border-t border-[#4A5568] pt-6 text-center text-[#A0AEC0]">
+            <p class="text-sm">
+              &copy; 2024 Top Shelf Advertising. All rights reserved.
             </p>
           </div>
         </div>
@@ -448,15 +1036,18 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Top Shelf Advertising - Denver's Premier Digital Marketing & Indoor Billboard Network",
+  title:
+    "Top Shelf Advertising - Denver's Premier Digital Marketing & Indoor Billboard Network",
   meta: [
     {
       name: "description",
-      content: "Local advertising and digital marketing pros in Denver. Helping businesses get noticed on screens and online with our premium indoor billboard network and full-service marketing solutions.",
+      content:
+        "Local advertising and digital marketing pros in Denver. Helping businesses get noticed on screens and online with our premium indoor billboard network and full-service marketing solutions.",
     },
     {
       name: "keywords",
-      content: "Denver digital marketing, indoor billboards, local advertising, digital signage, marketing agency Denver, advertising network, business marketing solutions",
+      content:
+        "Denver digital marketing, indoor billboards, local advertising, digital signage, marketing agency Denver, advertising network, business marketing solutions",
     },
     {
       name: "viewport",
@@ -464,11 +1055,13 @@ export const head: DocumentHead = {
     },
     {
       property: "og:title",
-      content: "Top Shelf Advertising - Denver's Premier Digital Marketing Agency",
+      content:
+        "Top Shelf Advertising - Denver's Premier Digital Marketing Agency",
     },
     {
       property: "og:description",
-      content: "Helping Denver businesses get noticed with premium indoor advertising and comprehensive digital marketing solutions.",
+      content:
+        "Helping Denver businesses get noticed with premium indoor advertising and comprehensive digital marketing solutions.",
     },
     {
       property: "og:type",
@@ -484,7 +1077,8 @@ export const head: DocumentHead = {
     },
     {
       name: "twitter:description",
-      content: "Premium indoor billboard network and digital marketing solutions for Denver businesses.",
+      content:
+        "Premium indoor billboard network and digital marketing solutions for Denver businesses.",
     },
   ],
   links: [
@@ -501,29 +1095,30 @@ export const head: DocumentHead = {
       script: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Top Shelf Advertising",
-        "description": "Denver's premier digital marketing and indoor advertising network",
-        "address": {
+        name: "Top Shelf Advertising",
+        description:
+          "Denver's premier digital marketing and indoor advertising network",
+        address: {
           "@type": "PostalAddress",
-          "addressLocality": "Denver",
-          "addressRegion": "Colorado",
-          "addressCountry": "US"
+          addressLocality: "Denver",
+          addressRegion: "Colorado",
+          addressCountry: "US",
         },
-        "telephone": "(303) 555-0123",
-        "email": "hello@topshelfadvertising.com",
-        "url": "https://your-domain.com",
-        "serviceArea": {
+        telephone: "(303) 555-0123",
+        email: "hello@topshelfadvertising.com",
+        url: "https://your-domain.com",
+        serviceArea: {
           "@type": "City",
-          "name": "Denver"
+          name: "Denver",
         },
-        "services": [
+        services: [
           "Digital Marketing",
           "Indoor Billboard Advertising",
           "Social Media Marketing",
           "SEO Services",
-          "Pay-Per-Click Advertising"
-        ]
-      })
-    }
-  ]
+          "Pay-Per-Click Advertising",
+        ],
+      }),
+    },
+  ],
 };
