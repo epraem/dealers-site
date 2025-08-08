@@ -196,7 +196,7 @@ export default component$(() => {
               </a>
               <a
                 href="tel:(303) 555-0123"
-                class="group inline-flex items-center justify-center rounded-xl border-2 border-[#63B3ED] px-8 py-4 text-lg font-semibold text-[#63B3ED] shadow-lg transition-all duration-300 hover:bg-[#63B3ED] hover:text-white hover:shadow-xl"
+                class="group inline-flex items-center justify-center rounded-xl border-2 border-[#2C5282] px-8 py-4 text-lg font-semibold text-[#2C5282] shadow-lg transition-all duration-300 hover:bg-[#2C5282] hover:text-white hover:shadow-xl"
               >
                 <svg
                   class="mr-3 h-5 w-5"
@@ -404,7 +404,7 @@ export default component$(() => {
                 delivers impactful, high-frequency exposure where it matters
                 most.
               </BodyText>
-              <button class="rounded-lg bg-[#63B3ED] px-6 py-3 text-base font-medium text-white shadow-lg transition-all duration-300 hover:bg-[#90CDF4] hover:shadow-xl">
+              <button class="rounded-lg bg-[#2C5282] px-6 py-3 text-base font-medium text-white shadow-lg transition-all duration-300 hover:bg-[#2A4365] hover:shadow-xl">
                 Explore Our Digital Ad Services →
               </button>
             </div>
@@ -442,7 +442,7 @@ export default component$(() => {
                   />
                 </svg>
               </div>
-              <Typography variant="h4" class="mb-3">
+              <Typography variant="h3" class="mb-3">
                 Indoor Digital Signage
               </Typography>
               <Typography variant="small" color="primary" class="mb-4">
@@ -613,7 +613,7 @@ export default component$(() => {
                       />
                     </svg>
                   </div>
-                  <Typography variant="h4" class="mb-3">
+                  <Typography variant="h3" class="mb-3">
                     Google Business Profile Optimization
                   </Typography>
                   <Typography variant="small" color="primary">
@@ -743,7 +743,7 @@ export default component$(() => {
                 decoding="async"
               />
               <div class="p-5">
-                <Typography variant="h4" class="mb-2">
+                <Typography variant="h3" class="mb-2">
                   Local Restaurant Chain
                 </Typography>
                 <Typography variant="small" color="primary" class="mb-3">
@@ -1087,7 +1087,7 @@ export default component$(() => {
           <div class="flex flex-col justify-center gap-4 sm:flex-row">
             <a
               href="mailto:hello@topshelfadvertising.com"
-              class="btn-hover-effect inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-[#3182CE] transition-all duration-300 hover:bg-gray-100"
+              class="btn-hover-effect inline-flex items-center justify-center rounded-lg bg-[#2C5282] px-6 py-3 text-base font-semibold text-white transition-all duration-300 hover:bg-[#2A4365]"
             >
               Get Started Today
               <svg
