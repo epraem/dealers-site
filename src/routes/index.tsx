@@ -2,7 +2,6 @@ import { component$, useSignal } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Logo } from "../components/ui/Logo";
 import {
-  Heading1,
   Heading2,
   BodyText,
   Typography,
@@ -135,14 +134,8 @@ export default component$(() => {
       {/* Hero Section */}
       <main>
         <section id="home" class="relative overflow-hidden bg-white pt-24 pb-20" role="banner" aria-label="Hero section">
-        {/* Background Pattern */}
-        <div class="absolute inset-0 opacity-5">
-          <div class="absolute top-0 left-0 h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMzMTgyQ0UiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')]" />
-        </div>
-
-        {/* Gradient Overlays */}
-        <div class="absolute top-0 left-0 h-96 w-96 rounded-full bg-gradient-to-br from-[#3182CE]/10 to-transparent blur-3xl" />
-        <div class="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-gradient-to-tl from-[#63B3ED]/10 to-transparent blur-3xl" />
+        {/* Simplified Background */}
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-white" />
 
         <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="text-center">
@@ -157,13 +150,13 @@ export default component$(() => {
               Denver's #1 Digital Marketing & Indoor Advertising Network
             </div>
 
-            <Heading1 class="mx-auto mb-8 max-w-5xl text-gray-800">
+            <h1 class="hero-heading mx-auto mb-8 max-w-5xl">
               Dominate Your Market with{" "}
-              <span class="bg-gradient-to-r from-[#3182CE] to-[#63B3ED] bg-clip-text text-transparent">
+              <span class="text-[#3182CE]">
                 Premium Digital Marketing
               </span>{" "}
               & Indoor Billboard Solutions
-            </Heading1>
+            </h1>
 
             <BodyText
               color="muted"
@@ -1237,6 +1230,30 @@ export default component$(() => {
 export const head: DocumentHead = {
   title:
     "Top Shelf Advertising - Denver's Premier Digital Marketing & Indoor Billboard Network",
+  styles: [
+    {
+      style: `
+        /* Critical CSS for LCP optimization */
+        @font-face {
+          font-family: 'Figtree';
+          src: url('/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+          font-weight: 300 900;
+          font-style: normal;
+          font-display: swap;
+        }
+        html { font-family: 'Figtree', system-ui, sans-serif; }
+        .hero-heading { 
+          font-size: 2.25rem;
+          font-weight: 700;
+          line-height: 1.2;
+          color: #2D3748;
+        }
+        @media (min-width: 1024px) {
+          .hero-heading { font-size: 3rem; }
+        }
+      `,
+    },
+  ],
   meta: [
     {
       name: "description",
@@ -1354,6 +1371,11 @@ export const head: DocumentHead = {
       href: "/fonts/Figtree-VariableFont_wght.ttf",
       as: "font",
       type: "font/ttf",
+      crossorigin: "anonymous",
+    },
+    {
+      rel: "preconnect",
+      href: "https://images.unsplash.com",
       crossorigin: "anonymous",
     },
     {
