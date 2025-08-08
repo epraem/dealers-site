@@ -96,7 +96,13 @@ export default component$(() => {
           
           <div class="grid-4">
             <div class="card">
-              <div class="card-icon">📊</div>
+              <div class="card-icon">
+                <div style="width: 20px; height: 20px; background: currentColor; border-radius: 2px; position: relative;">
+                  <div style="position: absolute; bottom: 0; left: 2px; width: 3px; height: 12px; background: var(--white); border-radius: 1px;"></div>
+                  <div style="position: absolute; bottom: 0; left: 7px; width: 3px; height: 8px; background: var(--white); border-radius: 1px;"></div>
+                  <div style="position: absolute; bottom: 0; left: 12px; width: 3px; height: 15px; background: var(--white); border-radius: 1px;"></div>
+                </div>
+              </div>
               <h3>Targeted Marketing Analytics</h3>
               <p>Real-time data and insights to optimize your campaigns and maximize ROI.</p>
             </div>
@@ -258,7 +264,7 @@ export default component$(() => {
             
             <div class="hero-image">
               <div style="display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
-                🏆
+                ���
               </div>
             </div>
           </div>
