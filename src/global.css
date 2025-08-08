@@ -38,7 +38,7 @@ body {
   background-color: var(--white);
   overflow-x: hidden;
   font-display: swap;
-  padding-top: 80px; /* Reserve space for fixed header */
+  padding-top: var(--header-height);
 }
 
 /* Utility classes for layout stability */
