@@ -495,8 +495,10 @@ export const head: DocumentHead = {
   ],
   scripts: [
     {
-      type: "application/ld+json",
-      children: JSON.stringify({
+      props: {
+        type: "application/ld+json",
+      },
+      script: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Top Shelf Advertising",
